@@ -16,5 +16,12 @@ namespace TV_advert_WF
         {
             InitializeComponent();
         }
+
+        private void ProgramEditForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.ProgramsWithTitles". При необходимости она может быть перемещена или удалена.
+            this.programsWithTitlesTableAdapter.Fill(this.advertDataSet.ProgramsWithTitles);
+
+        }
     }
 }

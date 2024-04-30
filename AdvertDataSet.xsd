@@ -2,7 +2,7 @@
 <xs:schema id="AdvertDataSet" targetNamespace="http://tempuri.org/AdvertDataSet.xsd" xmlns:mstns="http://tempuri.org/AdvertDataSet.xsd" xmlns="http://tempuri.org/AdvertDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="BlocksWithCostTableAdapter" GeneratorFunctionsComponentClassName="BlocksWithCostTableAdapter1" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="BlocksWithCostTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AdvertConnStr" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AdvertConnStr (Settings)" PropertyReference="ApplicationSettings.TV_advert_WF.Properties.Settings.GlobalReference.Default.AdvertConnStr" Provider="System.Data.OleDb" />
         </Connections>
@@ -407,7 +407,19 @@
             <Sources />
           </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectName="Blocks" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="BlocksWithCost" MethodsParameterType="CLR" Modifier="Public" Name="BlocksWithCost" QueryType="NoData" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="BlocksWithCost">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT        Blocks.Block_ID, Blocks.Title, Adverts.[Duration(sec)] / 60.0 * Programs.MinuteCost AS Block_cost
+FROM            ((Blocks INNER JOIN
+                         Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN
+                         Programs ON Blocks.Program = Programs.Prog_ID)</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
