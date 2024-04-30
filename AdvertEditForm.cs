@@ -25,5 +25,35 @@ namespace TV_advert_WF
             this.advertsWithTitlesTableAdapter.Fill(this.advertDataSet.AdvertsWithTitles);
 
         }
+
+        private void addAdvertButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteAdvertButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeAdvertButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCustomButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteCustomButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeCustomButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

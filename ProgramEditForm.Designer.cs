@@ -31,21 +31,21 @@ namespace TV_advert_WF
         {
             this.components = new System.ComponentModel.Container();
             this.progsDataGridView = new System.Windows.Forms.DataGridView();
-            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
-            this.programsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.programsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.ProgramsWithTitlesTableAdapter();
             this.progIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minuteCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ratingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
+            this.programsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.ProgramsWithTitlesTableAdapter();
             this.progEditPanel = new System.Windows.Forms.Panel();
             this.addProgButton = new System.Windows.Forms.Button();
             this.changeProgButton = new System.Windows.Forms.Button();
             this.deleteProgButton = new System.Windows.Forms.Button();
             this.progNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.progsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             this.progEditPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,22 +68,8 @@ namespace TV_advert_WF
             this.progsDataGridView.MultiSelect = false;
             this.progsDataGridView.Name = "progsDataGridView";
             this.progsDataGridView.ReadOnly = true;
-            this.progsDataGridView.Size = new System.Drawing.Size(594, 164);
+            this.progsDataGridView.Size = new System.Drawing.Size(591, 164);
             this.progsDataGridView.TabIndex = 3;
-            // 
-            // advertDataSet
-            // 
-            this.advertDataSet.DataSetName = "AdvertDataSet";
-            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // programsWithTitlesBindingSource
-            // 
-            this.programsWithTitlesBindingSource.DataMember = "ProgramsWithTitles";
-            this.programsWithTitlesBindingSource.DataSource = this.advertDataSet;
-            // 
-            // programsWithTitlesTableAdapter
-            // 
-            this.programsWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
             // progIDDataGridViewTextBoxColumn
             // 
@@ -117,6 +103,20 @@ namespace TV_advert_WF
             this.ratingDataGridViewTextBoxColumn.ReadOnly = true;
             this.ratingDataGridViewTextBoxColumn.Width = 63;
             // 
+            // programsWithTitlesBindingSource
+            // 
+            this.programsWithTitlesBindingSource.DataMember = "ProgramsWithTitles";
+            this.programsWithTitlesBindingSource.DataSource = this.advertDataSet;
+            // 
+            // advertDataSet
+            // 
+            this.advertDataSet.DataSetName = "AdvertDataSet";
+            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // programsWithTitlesTableAdapter
+            // 
+            this.programsWithTitlesTableAdapter.ClearBeforeFill = true;
+            // 
             // progEditPanel
             // 
             this.progEditPanel.Controls.Add(this.addProgButton);
@@ -139,6 +139,7 @@ namespace TV_advert_WF
             this.addProgButton.TabIndex = 3;
             this.addProgButton.Text = "Добавить программу";
             this.addProgButton.UseVisualStyleBackColor = false;
+            this.addProgButton.Click += new System.EventHandler(this.addProgButton_Click);
             // 
             // changeProgButton
             // 
@@ -152,6 +153,7 @@ namespace TV_advert_WF
             this.changeProgButton.TabIndex = 5;
             this.changeProgButton.Text = "Изменить выбранную программу";
             this.changeProgButton.UseVisualStyleBackColor = false;
+            this.changeProgButton.Click += new System.EventHandler(this.changeProgButton_Click);
             // 
             // deleteProgButton
             // 
@@ -165,6 +167,7 @@ namespace TV_advert_WF
             this.deleteProgButton.TabIndex = 4;
             this.deleteProgButton.Text = "Удалить выбранную программу";
             this.deleteProgButton.UseVisualStyleBackColor = false;
+            this.deleteProgButton.Click += new System.EventHandler(this.deleteProgButton_Click);
             // 
             // progNameLabel
             // 
@@ -191,8 +194,8 @@ namespace TV_advert_WF
             this.Text = "Программы";
             this.Load += new System.EventHandler(this.ProgramEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.progsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             this.progEditPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

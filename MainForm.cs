@@ -19,6 +19,10 @@ namespace TV_advert_WF
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.BlocksWithCostAdvanced". При необходимости она может быть перемещена или удалена.
+            this.blocksWithCostAdvancedTableAdapter.Fill(this.advertDataSet.BlocksWithCostAdvanced);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.BlocksWithCost". При необходимости она может быть перемещена или удалена.
+            this.blocksWithCostTableAdapter.Fill(this.advertDataSet.BlocksWithCost);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.Ratings". При необходимости она может быть перемещена или удалена.
             this.ratingsTableAdapter.Fill(this.advertDataSet.Ratings);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.ProgramsWithTitles". При необходимости она может быть перемещена или удалена.
@@ -42,6 +46,11 @@ namespace TV_advert_WF
 
 
         private void programEditButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reloadButton_Click(object sender, EventArgs e)
         {
 
         }

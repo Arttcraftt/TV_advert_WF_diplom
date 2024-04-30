@@ -23,5 +23,20 @@ namespace TV_advert_WF
             this.programsWithTitlesTableAdapter.Fill(this.advertDataSet.ProgramsWithTitles);
 
         }
+
+        private void addProgButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteProgButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeProgButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

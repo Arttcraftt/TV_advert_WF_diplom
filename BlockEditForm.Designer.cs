@@ -35,18 +35,18 @@ namespace TV_advert_WF
             this.changeBlockButton = new System.Windows.Forms.Button();
             this.deleteBlockButton = new System.Windows.Forms.Button();
             this.blocksDataGridView = new System.Windows.Forms.DataGridView();
-            this.blocksNameLabel = new System.Windows.Forms.Label();
-            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
-            this.blocksWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.blocksWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksWithTitlesTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.advertDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blocksWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
+            this.blocksNameLabel = new System.Windows.Forms.Label();
+            this.blocksWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksWithTitlesTableAdapter();
             this.blockEditPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blocksDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // blockEditPanel
@@ -117,33 +117,8 @@ namespace TV_advert_WF
             this.blocksDataGridView.MultiSelect = false;
             this.blocksDataGridView.Name = "blocksDataGridView";
             this.blocksDataGridView.ReadOnly = true;
-            this.blocksDataGridView.Size = new System.Drawing.Size(594, 164);
+            this.blocksDataGridView.Size = new System.Drawing.Size(591, 164);
             this.blocksDataGridView.TabIndex = 10;
-            // 
-            // blocksNameLabel
-            // 
-            this.blocksNameLabel.AutoSize = true;
-            this.blocksNameLabel.BackColor = System.Drawing.SystemColors.Window;
-            this.blocksNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.blocksNameLabel.Location = new System.Drawing.Point(12, 9);
-            this.blocksNameLabel.Name = "blocksNameLabel";
-            this.blocksNameLabel.Size = new System.Drawing.Size(73, 25);
-            this.blocksNameLabel.TabIndex = 11;
-            this.blocksNameLabel.Text = "Блоки";
-            // 
-            // advertDataSet
-            // 
-            this.advertDataSet.DataSetName = "AdvertDataSet";
-            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // blocksWithTitlesBindingSource
-            // 
-            this.blocksWithTitlesBindingSource.DataMember = "BlocksWithTitles";
-            this.blocksWithTitlesBindingSource.DataSource = this.advertDataSet;
-            // 
-            // blocksWithTitlesTableAdapter
-            // 
-            this.blocksWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -177,7 +152,32 @@ namespace TV_advert_WF
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             this.titleDataGridViewTextBoxColumn.Width = 52;
             // 
-            // BlockForm
+            // blocksWithTitlesBindingSource
+            // 
+            this.blocksWithTitlesBindingSource.DataMember = "BlocksWithTitles";
+            this.blocksWithTitlesBindingSource.DataSource = this.advertDataSet;
+            // 
+            // advertDataSet
+            // 
+            this.advertDataSet.DataSetName = "AdvertDataSet";
+            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // blocksNameLabel
+            // 
+            this.blocksNameLabel.AutoSize = true;
+            this.blocksNameLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.blocksNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.blocksNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.blocksNameLabel.Name = "blocksNameLabel";
+            this.blocksNameLabel.Size = new System.Drawing.Size(73, 25);
+            this.blocksNameLabel.TabIndex = 11;
+            this.blocksNameLabel.Text = "Блоки";
+            // 
+            // blocksWithTitlesTableAdapter
+            // 
+            this.blocksWithTitlesTableAdapter.ClearBeforeFill = true;
+            // 
+            // BlockEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,14 +186,14 @@ namespace TV_advert_WF
             this.Controls.Add(this.blocksNameLabel);
             this.Controls.Add(this.blocksDataGridView);
             this.Controls.Add(this.blockEditPanel);
-            this.Name = "BlockForm";
+            this.Name = "BlockEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Блоки";
             this.Load += new System.EventHandler(this.BlockForm_Load);
             this.blockEditPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.blocksDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

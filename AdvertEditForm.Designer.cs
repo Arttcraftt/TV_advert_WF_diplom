@@ -36,12 +36,12 @@ namespace TV_advert_WF
             this.сustomersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.сustomersTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.СustomersTableAdapter();
             this.adsDataGridView = new System.Windows.Forms.DataGridView();
-            this.customsDataGridView = new System.Windows.Forms.DataGridView();
             this.advertIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationsecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ratingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customsDataGridView = new System.Windows.Forms.DataGridView();
             this.custIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bankrequisitesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,30 +108,8 @@ namespace TV_advert_WF
             this.adsDataGridView.MultiSelect = false;
             this.adsDataGridView.Name = "adsDataGridView";
             this.adsDataGridView.ReadOnly = true;
-            this.adsDataGridView.Size = new System.Drawing.Size(594, 164);
+            this.adsDataGridView.Size = new System.Drawing.Size(591, 164);
             this.adsDataGridView.TabIndex = 2;
-            // 
-            // customsDataGridView
-            // 
-            this.customsDataGridView.AllowUserToAddRows = false;
-            this.customsDataGridView.AllowUserToDeleteRows = false;
-            this.customsDataGridView.AllowUserToResizeRows = false;
-            this.customsDataGridView.AutoGenerateColumns = false;
-            this.customsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.customsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.customsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.custIDDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn1,
-            this.bankrequisitesDataGridViewTextBoxColumn,
-            this.telephoneDataGridViewTextBoxColumn});
-            this.customsDataGridView.DataSource = this.сustomersBindingSource;
-            this.customsDataGridView.Location = new System.Drawing.Point(12, 232);
-            this.customsDataGridView.MultiSelect = false;
-            this.customsDataGridView.Name = "customsDataGridView";
-            this.customsDataGridView.ReadOnly = true;
-            this.customsDataGridView.Size = new System.Drawing.Size(591, 164);
-            this.customsDataGridView.TabIndex = 3;
             // 
             // advertIDDataGridViewTextBoxColumn
             // 
@@ -172,6 +150,28 @@ namespace TV_advert_WF
             this.ratingDataGridViewTextBoxColumn.Name = "ratingDataGridViewTextBoxColumn";
             this.ratingDataGridViewTextBoxColumn.ReadOnly = true;
             this.ratingDataGridViewTextBoxColumn.Width = 63;
+            // 
+            // customsDataGridView
+            // 
+            this.customsDataGridView.AllowUserToAddRows = false;
+            this.customsDataGridView.AllowUserToDeleteRows = false;
+            this.customsDataGridView.AllowUserToResizeRows = false;
+            this.customsDataGridView.AutoGenerateColumns = false;
+            this.customsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.customsDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.customsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.custIDDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn1,
+            this.bankrequisitesDataGridViewTextBoxColumn,
+            this.telephoneDataGridViewTextBoxColumn});
+            this.customsDataGridView.DataSource = this.сustomersBindingSource;
+            this.customsDataGridView.Location = new System.Drawing.Point(12, 232);
+            this.customsDataGridView.MultiSelect = false;
+            this.customsDataGridView.Name = "customsDataGridView";
+            this.customsDataGridView.ReadOnly = true;
+            this.customsDataGridView.Size = new System.Drawing.Size(591, 164);
+            this.customsDataGridView.TabIndex = 3;
             // 
             // custIDDataGridViewTextBoxColumn
             // 
@@ -249,6 +249,7 @@ namespace TV_advert_WF
             this.addAdvertButton.TabIndex = 3;
             this.addAdvertButton.Text = "Добавить рекламу";
             this.addAdvertButton.UseVisualStyleBackColor = false;
+            this.addAdvertButton.Click += new System.EventHandler(this.addAdvertButton_Click);
             // 
             // changeAdvertButton
             // 
@@ -262,6 +263,7 @@ namespace TV_advert_WF
             this.changeAdvertButton.TabIndex = 5;
             this.changeAdvertButton.Text = "Изменить выбранную рекламу";
             this.changeAdvertButton.UseVisualStyleBackColor = false;
+            this.changeAdvertButton.Click += new System.EventHandler(this.changeAdvertButton_Click);
             // 
             // deleteAdvertButton
             // 
@@ -275,13 +277,14 @@ namespace TV_advert_WF
             this.deleteAdvertButton.TabIndex = 4;
             this.deleteAdvertButton.Text = "Удалить выбранную рекламу";
             this.deleteAdvertButton.UseVisualStyleBackColor = false;
+            this.deleteAdvertButton.Click += new System.EventHandler(this.deleteAdvertButton_Click);
             // 
             // customsEditPanel
             // 
             this.customsEditPanel.Controls.Add(this.addCustomButton);
             this.customsEditPanel.Controls.Add(this.changeCustomButton);
             this.customsEditPanel.Controls.Add(this.deleteCustomButton);
-            this.customsEditPanel.Location = new System.Drawing.Point(609, 232);
+            this.customsEditPanel.Location = new System.Drawing.Point(612, 232);
             this.customsEditPanel.Name = "customsEditPanel";
             this.customsEditPanel.Size = new System.Drawing.Size(176, 164);
             this.customsEditPanel.TabIndex = 11;
@@ -298,6 +301,7 @@ namespace TV_advert_WF
             this.addCustomButton.TabIndex = 3;
             this.addCustomButton.Text = "Добавить заказчика";
             this.addCustomButton.UseVisualStyleBackColor = false;
+            this.addCustomButton.Click += new System.EventHandler(this.addCustomButton_Click);
             // 
             // changeCustomButton
             // 
@@ -311,6 +315,7 @@ namespace TV_advert_WF
             this.changeCustomButton.TabIndex = 5;
             this.changeCustomButton.Text = "Изменить выбранного заказчика";
             this.changeCustomButton.UseVisualStyleBackColor = false;
+            this.changeCustomButton.Click += new System.EventHandler(this.changeCustomButton_Click);
             // 
             // deleteCustomButton
             // 
@@ -324,8 +329,9 @@ namespace TV_advert_WF
             this.deleteCustomButton.TabIndex = 4;
             this.deleteCustomButton.Text = "Удалить выбранного заказчика";
             this.deleteCustomButton.UseVisualStyleBackColor = false;
+            this.deleteCustomButton.Click += new System.EventHandler(this.deleteCustomButton_Click);
             // 
-            // AdvertForm
+            // AdvertEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -337,7 +343,7 @@ namespace TV_advert_WF
             this.Controls.Add(this.advertNameLabel);
             this.Controls.Add(this.customsDataGridView);
             this.Controls.Add(this.adsDataGridView);
-            this.Name = "AdvertForm";
+            this.Name = "AdvertEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Реклама";
             this.Load += new System.EventHandler(this.AdvertForm_Load);
