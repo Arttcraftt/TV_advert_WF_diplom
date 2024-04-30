@@ -36,18 +36,18 @@ namespace TV_advert_WF
 
         private void blockEditButton_Click(object sender, EventArgs e)
         {
-
+            BlockEditForm blockEditForm = new BlockEditForm();
         }
 
         private void advertEditButton_Click(object sender, EventArgs e)
         {
-
+            AdvertEditForm advertEditForm = new AdvertEditForm();
         }
 
 
         private void programEditButton_Click(object sender, EventArgs e)
         {
-
+            ProgramEditForm programEditForm = new ProgramEditForm();
         }
 
         private void reloadButton_Click(object sender, EventArgs e)

@@ -58,6 +58,8 @@ namespace TV_advert_WF {
         
         private global::System.Data.DataRelation relationRatingsPrograms;
         
+        private global::System.Data.DataRelation relationBlocksBroadcast_list1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -452,6 +454,7 @@ namespace TV_advert_WF {
             this.relationProgramsBlocks = this.Relations["ProgramsBlocks"];
             this.relationBlocksBroadcast_list = this.Relations["BlocksBroadcast_list"];
             this.relationRatingsPrograms = this.Relations["RatingsPrograms"];
+            this.relationBlocksBroadcast_list1 = this.Relations["BlocksBroadcast_list1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -508,6 +511,10 @@ namespace TV_advert_WF {
                         this.tableRatings.Rating_IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablePrograms.RatingColumn}, false);
             this.Relations.Add(this.relationRatingsPrograms);
+            this.relationBlocksBroadcast_list1 = new global::System.Data.DataRelation("BlocksBroadcast_list1", new global::System.Data.DataColumn[] {
+                        this.tableBlocksWithCost.Block_IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBroadcastList.Block_IDColumn}, false);
+            this.Relations.Add(this.relationBlocksBroadcast_list1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2790,6 +2797,8 @@ namespace TV_advert_WF {
             
             private global::System.Data.DataColumn columnTitle;
             
+            private global::System.Data.DataColumn columnAdsQuantity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BlocksWithTitlesDataTable() {
@@ -2857,6 +2866,14 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AdsQuantityColumn {
+                get {
+                    return this.columnAdsQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2892,13 +2909,14 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BlocksWithTitlesRow AddBlocksWithTitlesRow(string Program, string Advert, string Title) {
+            public BlocksWithTitlesRow AddBlocksWithTitlesRow(string Program, string Advert, string Title, int AdsQuantity) {
                 BlocksWithTitlesRow rowBlocksWithTitlesRow = ((BlocksWithTitlesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Program,
                         Advert,
-                        Title};
+                        Title,
+                        AdsQuantity};
                 rowBlocksWithTitlesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBlocksWithTitlesRow);
                 return rowBlocksWithTitlesRow;
@@ -2925,6 +2943,7 @@ namespace TV_advert_WF {
                 this.columnProgram = base.Columns["Program"];
                 this.columnAdvert = base.Columns["Advert"];
                 this.columnTitle = base.Columns["Title"];
+                this.columnAdsQuantity = base.Columns["AdsQuantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2938,6 +2957,8 @@ namespace TV_advert_WF {
                 base.Columns.Add(this.columnAdvert);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
+                this.columnAdsQuantity = new global::System.Data.DataColumn("AdsQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdsQuantity);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
@@ -3085,6 +3106,8 @@ namespace TV_advert_WF {
             
             private global::System.Data.DataColumn columnRating;
             
+            private global::System.Data.DataColumn columnAdsQuantity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ProgramsWithTitlesDataTable() {
@@ -3152,6 +3175,14 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AdsQuantityColumn {
+                get {
+                    return this.columnAdsQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3187,13 +3218,14 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProgramsWithTitlesRow AddProgramsWithTitlesRow(string Title, decimal MinuteCost, string Rating) {
+            public ProgramsWithTitlesRow AddProgramsWithTitlesRow(string Title, decimal MinuteCost, string Rating, int AdsQuantity) {
                 ProgramsWithTitlesRow rowProgramsWithTitlesRow = ((ProgramsWithTitlesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
                         MinuteCost,
-                        Rating};
+                        Rating,
+                        AdsQuantity};
                 rowProgramsWithTitlesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProgramsWithTitlesRow);
                 return rowProgramsWithTitlesRow;
@@ -3220,6 +3252,7 @@ namespace TV_advert_WF {
                 this.columnTitle = base.Columns["Title"];
                 this.columnMinuteCost = base.Columns["MinuteCost"];
                 this.columnRating = base.Columns["Rating"];
+                this.columnAdsQuantity = base.Columns["AdsQuantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3233,6 +3266,8 @@ namespace TV_advert_WF {
                 base.Columns.Add(this.columnMinuteCost);
                 this.columnRating = new global::System.Data.DataColumn("Rating", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRating);
+                this.columnAdsQuantity = new global::System.Data.DataColumn("AdsQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdsQuantity);
                 this.columnProg_ID.AutoIncrement = true;
                 this.columnProg_ID.AutoIncrementSeed = -1;
                 this.columnProg_ID.AutoIncrementStep = -1;
@@ -3657,6 +3692,8 @@ namespace TV_advert_WF {
             
             private global::System.Data.DataColumn columnBlockCost;
             
+            private global::System.Data.DataColumn columnAdsQuantity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BlocksWithCostAdvancedDataTable() {
@@ -3732,6 +3769,14 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AdsQuantityColumn {
+                get {
+                    return this.columnAdsQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3767,14 +3812,15 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BlocksWithCostAdvancedRow AddBlocksWithCostAdvancedRow(string Program, string Advert, string Title, double BlockCost) {
+            public BlocksWithCostAdvancedRow AddBlocksWithCostAdvancedRow(string Program, string Advert, string Title, double BlockCost, int AdsQuantity) {
                 BlocksWithCostAdvancedRow rowBlocksWithCostAdvancedRow = ((BlocksWithCostAdvancedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Program,
                         Advert,
                         Title,
-                        BlockCost};
+                        BlockCost,
+                        AdsQuantity};
                 rowBlocksWithCostAdvancedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBlocksWithCostAdvancedRow);
                 return rowBlocksWithCostAdvancedRow;
@@ -3802,6 +3848,7 @@ namespace TV_advert_WF {
                 this.columnAdvert = base.Columns["Advert"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnBlockCost = base.Columns["BlockCost"];
+                this.columnAdsQuantity = base.Columns["AdsQuantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3817,6 +3864,8 @@ namespace TV_advert_WF {
                 base.Columns.Add(this.columnTitle);
                 this.columnBlockCost = new global::System.Data.DataColumn("BlockCost", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBlockCost);
+                this.columnAdsQuantity = new global::System.Data.DataColumn("AdsQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdsQuantity);
                 this.columnBlock_ID.AutoIncrement = true;
                 this.columnBlock_ID.AutoIncrementSeed = -1;
                 this.columnBlock_ID.AutoIncrementStep = -1;
@@ -4313,6 +4362,17 @@ namespace TV_advert_WF {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["BlocksBroadcast_list"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BlocksWithCostRow BlocksWithCostRow {
+                get {
+                    return ((BlocksWithCostRow)(this.GetParentRow(this.Table.ParentRelations["BlocksBroadcast_list1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["BlocksBroadcast_list1"]);
                 }
             }
             
@@ -4893,6 +4953,22 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AdsQuantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableBlocksWithTitles.AdsQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'AdsQuantity\' в таблице \'BlocksWithTitles\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBlocksWithTitles.AdsQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableBlocksWithTitles.IDColumn);
             }
@@ -4937,6 +5013,18 @@ namespace TV_advert_WF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTitleNull() {
                 this[this.tableBlocksWithTitles.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAdsQuantityNull() {
+                return this.IsNull(this.tableBlocksWithTitles.AdsQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAdsQuantityNull() {
+                this[this.tableBlocksWithTitles.AdsQuantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5020,6 +5108,22 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AdsQuantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableProgramsWithTitles.AdsQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'AdsQuantity\' в таблице \'ProgramsWithTitles\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProgramsWithTitles.AdsQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsProg_IDNull() {
                 return this.IsNull(this.tableProgramsWithTitles.Prog_IDColumn);
             }
@@ -5064,6 +5168,18 @@ namespace TV_advert_WF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRatingNull() {
                 this[this.tableProgramsWithTitles.RatingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAdsQuantityNull() {
+                return this.IsNull(this.tableProgramsWithTitles.AdsQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAdsQuantityNull() {
+                this[this.tableProgramsWithTitles.AdsQuantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5118,6 +5234,17 @@ namespace TV_advert_WF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBlock_costNull() {
                 this[this.tableBlocksWithCost.Block_costColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BroadcastListRow[] GetBroadcastListRows() {
+                if ((this.Table.ChildRelations["BlocksBroadcast_list1"] == null)) {
+                    return new BroadcastListRow[0];
+                }
+                else {
+                    return ((BroadcastListRow[])(base.GetChildRows(this.Table.ChildRelations["BlocksBroadcast_list1"])));
+                }
             }
         }
         
@@ -5218,6 +5345,23 @@ namespace TV_advert_WF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AdsQuantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableBlocksWithCostAdvanced.AdsQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'AdsQuantity\' в таблице \'BlocksWithCostAdvanced\' равно DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableBlocksWithCostAdvanced.AdsQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBlock_IDNull() {
                 return this.IsNull(this.tableBlocksWithCostAdvanced.Block_IDColumn);
             }
@@ -5274,6 +5418,18 @@ namespace TV_advert_WF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBlockCostNull() {
                 this[this.tableBlocksWithCostAdvanced.BlockCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAdsQuantityNull() {
+                return this.IsNull(this.tableBlocksWithCostAdvanced.AdsQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAdsQuantityNull() {
+                this[this.tableBlocksWithCostAdvanced.AdsQuantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8047,6 +8203,7 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Program", "Program");
             tableMapping.ColumnMappings.Add("Advert", "Advert");
             tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("AdsQuantity", "AdsQuantity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8063,7 +8220,8 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Program, Advert, Title FROM BlocksWithTitles";
+            this._commandCollection[0].CommandText = "SELECT        ID, Program, Advert, Title, AdsQuantity\r\nFROM            BlocksWith" +
+                "Titles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8217,6 +8375,7 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("MinuteCost", "MinuteCost");
             tableMapping.ColumnMappings.Add("Rating", "Rating");
+            tableMapping.ColumnMappings.Add("AdsQuantity", "AdsQuantity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8233,7 +8392,8 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Prog_ID, Title, MinuteCost, Rating FROM ProgramsWithTitles";
+            this._commandCollection[0].CommandText = "SELECT        Prog_ID, Title, MinuteCost, Rating, AdsQuantity\r\nFROM            Pr" +
+                "ogramsWithTitles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8411,9 +8571,10 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Blocks.Block_ID, Adverts.[Duration(sec)] / 60.0 * Programs.MinuteCost AS B" +
-                "lock_cost FROM ((Blocks INNER JOIN Adverts ON Blocks.Advert = Adverts.Advert_ID)" +
-                " INNER JOIN Programs ON Blocks.Program = Programs.Prog_ID)";
+            this._commandCollection[0].CommandText = @"SELECT        Blocks.Block_ID, Adverts.[Duration(sec)] / 60.0 * Programs.MinuteCost * Blocks.AdsQuantity AS Block_cost
+FROM            ((Blocks INNER JOIN
+                         Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN
+                         Programs ON Blocks.Program = Programs.Prog_ID)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8597,6 +8758,7 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("BlockCost", "BlockCost");
             tableMapping.ColumnMappings.Add("Block_ID", "Block_ID");
+            tableMapping.ColumnMappings.Add("AdsQuantity", "AdsQuantity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8613,7 +8775,7 @@ namespace TV_advert_WF.AdvertDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Blocks.Block_ID, Programs.Title AS Program, Adverts.Title AS Advert, Blocks.Title, Adverts.[Duration(sec)] / 60 * Programs.MinuteCost AS BlockCost
+            this._commandCollection[0].CommandText = @"SELECT        Blocks.Block_ID, Programs.Title AS Program, Adverts.Title AS Advert, Blocks.Title, Blocks.AdsQuantity, Adverts.[Duration(sec)] / 60 * Programs.MinuteCost * Blocks.AdsQuantity AS BlockCost
 FROM            ((Blocks INNER JOIN
                          Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN
                          Programs ON Blocks.Program = Programs.Prog_ID)";
@@ -8921,21 +9083,21 @@ FROM            ((Blocks INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._broadcastListTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BroadcastList.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._broadcastListTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._blocksWithCostTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.BlocksWithCost.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._blocksWithCostTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._broadcastListTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BroadcastList.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._broadcastListTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8989,19 +9151,19 @@ FROM            ((Blocks INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._broadcastListTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BroadcastList.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._broadcastListTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._blocksWithCostTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.BlocksWithCost.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._blocksWithCostTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._broadcastListTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BroadcastList.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._broadcastListTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -9015,19 +9177,19 @@ FROM            ((Blocks INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(AdvertDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._blocksWithCostTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BlocksWithCost.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._blocksWithCostTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._broadcastListTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.BroadcastList.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._broadcastListTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._blocksWithCostTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BlocksWithCost.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._blocksWithCostTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

@@ -370,10 +370,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BlocksWithTitlesTableAdapter" GeneratorDataComponentClassName="BlocksWithTitlesTableAdapter" Name="BlocksWithTitles" UserDataComponentName="BlocksWithTitlesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectName="BlocksWithTitles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectName="BlocksWithTitles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, Program, Advert, Title FROM BlocksWithTitles</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, Program, Advert, Title, AdsQuantity
+FROM            BlocksWithTitles</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -384,15 +385,17 @@
               <Mapping SourceColumn="Program" DataSetColumn="Program" />
               <Mapping SourceColumn="Advert" DataSetColumn="Advert" />
               <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="AdsQuantity" DataSetColumn="AdsQuantity" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProgramsWithTitlesTableAdapter" GeneratorDataComponentClassName="ProgramsWithTitlesTableAdapter" Name="ProgramsWithTitles" UserDataComponentName="ProgramsWithTitlesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectName="ProgramsWithTitles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectName="ProgramsWithTitles" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Prog_ID, Title, MinuteCost, Rating FROM ProgramsWithTitles</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Prog_ID, Title, MinuteCost, Rating, AdsQuantity
+FROM            ProgramsWithTitles</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -403,6 +406,7 @@
               <Mapping SourceColumn="Title" DataSetColumn="Title" />
               <Mapping SourceColumn="MinuteCost" DataSetColumn="MinuteCost" />
               <Mapping SourceColumn="Rating" DataSetColumn="Rating" />
+              <Mapping SourceColumn="AdsQuantity" DataSetColumn="AdsQuantity" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -419,7 +423,10 @@
                 </DeleteCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Blocks.Block_ID, Adverts.[Duration(sec)] / 60.0 * Programs.MinuteCost AS Block_cost FROM ((Blocks INNER JOIN Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN Programs ON Blocks.Program = Programs.Prog_ID)</CommandText>
+                    <CommandText>SELECT        Blocks.Block_ID, Adverts.[Duration(sec)] / 60.0 * Programs.MinuteCost * Blocks.AdsQuantity AS Block_cost
+FROM            ((Blocks INNER JOIN
+                         Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN
+                         Programs ON Blocks.Program = Programs.Prog_ID)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -444,7 +451,7 @@
               <DbSource ConnectionRef="AdvertConnStr (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Blocks.Block_ID, Programs.Title AS Program, Adverts.Title AS Advert, Blocks.Title, Adverts.[Duration(sec)] / 60 * Programs.MinuteCost AS BlockCost
+                    <CommandText>SELECT        Blocks.Block_ID, Programs.Title AS Program, Adverts.Title AS Advert, Blocks.Title, Blocks.AdsQuantity, Adverts.[Duration(sec)] / 60 * Programs.MinuteCost * Blocks.AdsQuantity AS BlockCost
 FROM            ((Blocks INNER JOIN
                          Adverts ON Blocks.Advert = Adverts.Advert_ID) INNER JOIN
                          Programs ON Blocks.Program = Programs.Prog_ID)</CommandText>
@@ -459,6 +466,7 @@ FROM            ((Blocks INNER JOIN
               <Mapping SourceColumn="Title" DataSetColumn="Title" />
               <Mapping SourceColumn="BlockCost" DataSetColumn="BlockCost" />
               <Mapping SourceColumn="Block_ID" DataSetColumn="Block_ID" />
+              <Mapping SourceColumn="AdsQuantity" DataSetColumn="AdsQuantity" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -470,7 +478,7 @@ FROM            ((Blocks INNER JOIN
   <xs:element name="AdvertDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AdvertDataSet" msprop:Generator_UserDSName="AdvertDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Adverts" msprop:Generator_TableClassName="AdvertsDataTable" msprop:Generator_TableVarName="tableAdverts" msprop:Generator_TablePropName="Adverts" msprop:Generator_RowDeletingName="AdvertsRowDeleting" msprop:Generator_RowChangingName="AdvertsRowChanging" msprop:Generator_RowEvHandlerName="AdvertsRowChangeEventHandler" msprop:Generator_RowDeletedName="AdvertsRowDeleted" msprop:Generator_UserTableName="Adverts" msprop:Generator_RowChangedName="AdvertsRowChanged" msprop:Generator_RowEvArgName="AdvertsRowChangeEvent" msprop:Generator_RowClassName="AdvertsRow">
+        <xs:element name="Adverts" msprop:Generator_TableClassName="AdvertsDataTable" msprop:Generator_TableVarName="tableAdverts" msprop:Generator_RowChangedName="AdvertsRowChanged" msprop:Generator_TablePropName="Adverts" msprop:Generator_RowDeletingName="AdvertsRowDeleting" msprop:Generator_RowChangingName="AdvertsRowChanging" msprop:Generator_RowEvHandlerName="AdvertsRowChangeEventHandler" msprop:Generator_RowDeletedName="AdvertsRowDeleted" msprop:Generator_RowClassName="AdvertsRow" msprop:Generator_UserTableName="Adverts" msprop:Generator_RowEvArgName="AdvertsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Advert_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAdvert_ID" msprop:Generator_ColumnPropNameInRow="Advert_ID" msprop:Generator_ColumnPropNameInTable="Advert_IDColumn" msprop:Generator_UserColumnName="Advert_ID" type="xs:int" />
@@ -487,7 +495,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Blocks" msprop:Generator_TableClassName="BlocksDataTable" msprop:Generator_TableVarName="tableBlocks" msprop:Generator_TablePropName="Blocks" msprop:Generator_RowDeletingName="BlocksRowDeleting" msprop:Generator_RowChangingName="BlocksRowChanging" msprop:Generator_RowEvHandlerName="BlocksRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksRowDeleted" msprop:Generator_UserTableName="Blocks" msprop:Generator_RowChangedName="BlocksRowChanged" msprop:Generator_RowEvArgName="BlocksRowChangeEvent" msprop:Generator_RowClassName="BlocksRow">
+        <xs:element name="Blocks" msprop:Generator_TableClassName="BlocksDataTable" msprop:Generator_TableVarName="tableBlocks" msprop:Generator_RowChangedName="BlocksRowChanged" msprop:Generator_TablePropName="Blocks" msprop:Generator_RowDeletingName="BlocksRowDeleting" msprop:Generator_RowChangingName="BlocksRowChanging" msprop:Generator_RowEvHandlerName="BlocksRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksRowDeleted" msprop:Generator_RowClassName="BlocksRow" msprop:Generator_UserTableName="Blocks" msprop:Generator_RowEvArgName="BlocksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Block_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBlock_ID" msprop:Generator_ColumnPropNameInRow="Block_ID" msprop:Generator_ColumnPropNameInTable="Block_IDColumn" msprop:Generator_UserColumnName="Block_ID" type="xs:int" />
@@ -503,7 +511,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BroadcastList" msprop:Generator_TableClassName="BroadcastListDataTable" msprop:Generator_TableVarName="tableBroadcastList" msprop:Generator_TablePropName="BroadcastList" msprop:Generator_RowDeletingName="BroadcastListRowDeleting" msprop:Generator_RowChangingName="BroadcastListRowChanging" msprop:Generator_RowEvHandlerName="BroadcastListRowChangeEventHandler" msprop:Generator_RowDeletedName="BroadcastListRowDeleted" msprop:Generator_UserTableName="BroadcastList" msprop:Generator_RowChangedName="BroadcastListRowChanged" msprop:Generator_RowEvArgName="BroadcastListRowChangeEvent" msprop:Generator_RowClassName="BroadcastListRow">
+        <xs:element name="BroadcastList" msprop:Generator_TableClassName="BroadcastListDataTable" msprop:Generator_TableVarName="tableBroadcastList" msprop:Generator_RowChangedName="BroadcastListRowChanged" msprop:Generator_TablePropName="BroadcastList" msprop:Generator_RowDeletingName="BroadcastListRowDeleting" msprop:Generator_RowChangingName="BroadcastListRowChanging" msprop:Generator_RowEvHandlerName="BroadcastListRowChangeEventHandler" msprop:Generator_RowDeletedName="BroadcastListRowDeleted" msprop:Generator_RowClassName="BroadcastListRow" msprop:Generator_UserTableName="BroadcastList" msprop:Generator_RowEvArgName="BroadcastListRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Event_ID" msprop:Generator_ColumnVarNameInTable="columnEvent_ID" msprop:Generator_ColumnPropNameInRow="Event_ID" msprop:Generator_ColumnPropNameInTable="Event_IDColumn" msprop:Generator_UserColumnName="Event_ID" type="xs:int" />
@@ -511,7 +519,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Programs" msprop:Generator_TableClassName="ProgramsDataTable" msprop:Generator_TableVarName="tablePrograms" msprop:Generator_TablePropName="Programs" msprop:Generator_RowDeletingName="ProgramsRowDeleting" msprop:Generator_RowChangingName="ProgramsRowChanging" msprop:Generator_RowEvHandlerName="ProgramsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProgramsRowDeleted" msprop:Generator_UserTableName="Programs" msprop:Generator_RowChangedName="ProgramsRowChanged" msprop:Generator_RowEvArgName="ProgramsRowChangeEvent" msprop:Generator_RowClassName="ProgramsRow">
+        <xs:element name="Programs" msprop:Generator_TableClassName="ProgramsDataTable" msprop:Generator_TableVarName="tablePrograms" msprop:Generator_RowChangedName="ProgramsRowChanged" msprop:Generator_TablePropName="Programs" msprop:Generator_RowDeletingName="ProgramsRowDeleting" msprop:Generator_RowChangingName="ProgramsRowChanging" msprop:Generator_RowEvHandlerName="ProgramsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProgramsRowDeleted" msprop:Generator_RowClassName="ProgramsRow" msprop:Generator_UserTableName="Programs" msprop:Generator_RowEvArgName="ProgramsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Prog_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProg_ID" msprop:Generator_ColumnPropNameInRow="Prog_ID" msprop:Generator_ColumnPropNameInTable="Prog_IDColumn" msprop:Generator_UserColumnName="Prog_ID" type="xs:int" />
@@ -527,7 +535,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ratings" msprop:Generator_TableClassName="RatingsDataTable" msprop:Generator_TableVarName="tableRatings" msprop:Generator_TablePropName="Ratings" msprop:Generator_RowDeletingName="RatingsRowDeleting" msprop:Generator_RowChangingName="RatingsRowChanging" msprop:Generator_RowEvHandlerName="RatingsRowChangeEventHandler" msprop:Generator_RowDeletedName="RatingsRowDeleted" msprop:Generator_UserTableName="Ratings" msprop:Generator_RowChangedName="RatingsRowChanged" msprop:Generator_RowEvArgName="RatingsRowChangeEvent" msprop:Generator_RowClassName="RatingsRow">
+        <xs:element name="Ratings" msprop:Generator_TableClassName="RatingsDataTable" msprop:Generator_TableVarName="tableRatings" msprop:Generator_RowChangedName="RatingsRowChanged" msprop:Generator_TablePropName="Ratings" msprop:Generator_RowDeletingName="RatingsRowDeleting" msprop:Generator_RowChangingName="RatingsRowChanging" msprop:Generator_RowEvHandlerName="RatingsRowChangeEventHandler" msprop:Generator_RowDeletedName="RatingsRowDeleted" msprop:Generator_RowClassName="RatingsRow" msprop:Generator_UserTableName="Ratings" msprop:Generator_RowEvArgName="RatingsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Rating_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRating_ID" msprop:Generator_ColumnPropNameInRow="Rating_ID" msprop:Generator_ColumnPropNameInTable="Rating_IDColumn" msprop:Generator_UserColumnName="Rating_ID" type="xs:int" />
@@ -541,7 +549,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Сustomers" msprop:Generator_TableClassName="СustomersDataTable" msprop:Generator_TableVarName="tableСustomers" msprop:Generator_TablePropName="Сustomers" msprop:Generator_RowDeletingName="СustomersRowDeleting" msprop:Generator_RowChangingName="СustomersRowChanging" msprop:Generator_RowEvHandlerName="СustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="СustomersRowDeleted" msprop:Generator_UserTableName="Сustomers" msprop:Generator_RowChangedName="СustomersRowChanged" msprop:Generator_RowEvArgName="СustomersRowChangeEvent" msprop:Generator_RowClassName="СustomersRow">
+        <xs:element name="Сustomers" msprop:Generator_TableClassName="СustomersDataTable" msprop:Generator_TableVarName="tableСustomers" msprop:Generator_RowChangedName="СustomersRowChanged" msprop:Generator_TablePropName="Сustomers" msprop:Generator_RowDeletingName="СustomersRowDeleting" msprop:Generator_RowChangingName="СustomersRowChanging" msprop:Generator_RowEvHandlerName="СustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="СustomersRowDeleted" msprop:Generator_RowClassName="СustomersRow" msprop:Generator_UserTableName="Сustomers" msprop:Generator_RowEvArgName="СustomersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cust_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCust_ID" msprop:Generator_ColumnPropNameInRow="Cust_ID" msprop:Generator_ColumnPropNameInTable="Cust_IDColumn" msprop:Generator_UserColumnName="Cust_ID" type="xs:int" />
@@ -569,7 +577,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AdvertsWithTitles" msprop:Generator_TableClassName="AdvertsWithTitlesDataTable" msprop:Generator_TableVarName="tableAdvertsWithTitles" msprop:Generator_TablePropName="AdvertsWithTitles" msprop:Generator_RowDeletingName="AdvertsWithTitlesRowDeleting" msprop:Generator_RowChangingName="AdvertsWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="AdvertsWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="AdvertsWithTitlesRowDeleted" msprop:Generator_UserTableName="AdvertsWithTitles" msprop:Generator_RowChangedName="AdvertsWithTitlesRowChanged" msprop:Generator_RowEvArgName="AdvertsWithTitlesRowChangeEvent" msprop:Generator_RowClassName="AdvertsWithTitlesRow">
+        <xs:element name="AdvertsWithTitles" msprop:Generator_TableClassName="AdvertsWithTitlesDataTable" msprop:Generator_TableVarName="tableAdvertsWithTitles" msprop:Generator_RowChangedName="AdvertsWithTitlesRowChanged" msprop:Generator_TablePropName="AdvertsWithTitles" msprop:Generator_RowDeletingName="AdvertsWithTitlesRowDeleting" msprop:Generator_RowChangingName="AdvertsWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="AdvertsWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="AdvertsWithTitlesRowDeleted" msprop:Generator_RowClassName="AdvertsWithTitlesRow" msprop:Generator_UserTableName="AdvertsWithTitles" msprop:Generator_RowEvArgName="AdvertsWithTitlesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Advert_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAdvert_ID" msprop:Generator_ColumnPropNameInRow="Advert_ID" msprop:Generator_ColumnPropNameInTable="Advert_IDColumn" msprop:Generator_UserColumnName="Advert_ID" type="xs:int" minOccurs="0" />
@@ -598,7 +606,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BlocksWithTitles" msprop:Generator_TableClassName="BlocksWithTitlesDataTable" msprop:Generator_TableVarName="tableBlocksWithTitles" msprop:Generator_TablePropName="BlocksWithTitles" msprop:Generator_RowDeletingName="BlocksWithTitlesRowDeleting" msprop:Generator_RowChangingName="BlocksWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithTitlesRowDeleted" msprop:Generator_UserTableName="BlocksWithTitles" msprop:Generator_RowChangedName="BlocksWithTitlesRowChanged" msprop:Generator_RowEvArgName="BlocksWithTitlesRowChangeEvent" msprop:Generator_RowClassName="BlocksWithTitlesRow">
+        <xs:element name="BlocksWithTitles" msprop:Generator_TableClassName="BlocksWithTitlesDataTable" msprop:Generator_TableVarName="tableBlocksWithTitles" msprop:Generator_RowChangedName="BlocksWithTitlesRowChanged" msprop:Generator_TablePropName="BlocksWithTitles" msprop:Generator_RowDeletingName="BlocksWithTitlesRowDeleting" msprop:Generator_RowChangingName="BlocksWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithTitlesRowDeleted" msprop:Generator_RowClassName="BlocksWithTitlesRow" msprop:Generator_UserTableName="BlocksWithTitles" msprop:Generator_RowEvArgName="BlocksWithTitlesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
@@ -623,10 +631,11 @@ FROM            ((Blocks INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="AdsQuantity" msprop:Generator_ColumnVarNameInTable="columnAdsQuantity" msprop:Generator_ColumnPropNameInRow="AdsQuantity" msprop:Generator_ColumnPropNameInTable="AdsQuantityColumn" msprop:Generator_UserColumnName="AdsQuantity" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProgramsWithTitles" msprop:Generator_TableClassName="ProgramsWithTitlesDataTable" msprop:Generator_TableVarName="tableProgramsWithTitles" msprop:Generator_TablePropName="ProgramsWithTitles" msprop:Generator_RowDeletingName="ProgramsWithTitlesRowDeleting" msprop:Generator_RowChangingName="ProgramsWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="ProgramsWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="ProgramsWithTitlesRowDeleted" msprop:Generator_UserTableName="ProgramsWithTitles" msprop:Generator_RowChangedName="ProgramsWithTitlesRowChanged" msprop:Generator_RowEvArgName="ProgramsWithTitlesRowChangeEvent" msprop:Generator_RowClassName="ProgramsWithTitlesRow">
+        <xs:element name="ProgramsWithTitles" msprop:Generator_TableClassName="ProgramsWithTitlesDataTable" msprop:Generator_TableVarName="tableProgramsWithTitles" msprop:Generator_RowChangedName="ProgramsWithTitlesRowChanged" msprop:Generator_TablePropName="ProgramsWithTitles" msprop:Generator_RowDeletingName="ProgramsWithTitlesRowDeleting" msprop:Generator_RowChangingName="ProgramsWithTitlesRowChanging" msprop:Generator_RowEvHandlerName="ProgramsWithTitlesRowChangeEventHandler" msprop:Generator_RowDeletedName="ProgramsWithTitlesRowDeleted" msprop:Generator_RowClassName="ProgramsWithTitlesRow" msprop:Generator_UserTableName="ProgramsWithTitles" msprop:Generator_RowEvArgName="ProgramsWithTitlesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Prog_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProg_ID" msprop:Generator_ColumnPropNameInRow="Prog_ID" msprop:Generator_ColumnPropNameInTable="Prog_IDColumn" msprop:Generator_UserColumnName="Prog_ID" type="xs:int" minOccurs="0" />
@@ -645,10 +654,11 @@ FROM            ((Blocks INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="AdsQuantity" msprop:Generator_ColumnVarNameInTable="columnAdsQuantity" msprop:Generator_ColumnPropNameInRow="AdsQuantity" msprop:Generator_ColumnPropNameInTable="AdsQuantityColumn" msprop:Generator_UserColumnName="AdsQuantity" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BlocksWithCost" msprop:Generator_TableClassName="BlocksWithCostDataTable" msprop:Generator_TableVarName="tableBlocksWithCost" msprop:Generator_TablePropName="BlocksWithCost" msprop:Generator_RowDeletingName="BlocksWithCostRowDeleting" msprop:Generator_RowChangingName="BlocksWithCostRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithCostRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithCostRowDeleted" msprop:Generator_UserTableName="BlocksWithCost" msprop:Generator_RowChangedName="BlocksWithCostRowChanged" msprop:Generator_RowEvArgName="BlocksWithCostRowChangeEvent" msprop:Generator_RowClassName="BlocksWithCostRow">
+        <xs:element name="BlocksWithCost" msprop:Generator_TableClassName="BlocksWithCostDataTable" msprop:Generator_TableVarName="tableBlocksWithCost" msprop:Generator_RowChangedName="BlocksWithCostRowChanged" msprop:Generator_TablePropName="BlocksWithCost" msprop:Generator_RowDeletingName="BlocksWithCostRowDeleting" msprop:Generator_RowChangingName="BlocksWithCostRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithCostRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithCostRowDeleted" msprop:Generator_RowClassName="BlocksWithCostRow" msprop:Generator_UserTableName="BlocksWithCost" msprop:Generator_RowEvArgName="BlocksWithCostRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Block_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBlock_ID" msprop:Generator_ColumnPropNameInRow="Block_ID" msprop:Generator_ColumnPropNameInTable="Block_IDColumn" msprop:Generator_UserColumnName="Block_ID" type="xs:int" />
@@ -656,7 +666,7 @@ FROM            ((Blocks INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BlocksWithCostAdvanced" msprop:Generator_TableClassName="BlocksWithCostAdvancedDataTable" msprop:Generator_TableVarName="tableBlocksWithCostAdvanced" msprop:Generator_TablePropName="BlocksWithCostAdvanced" msprop:Generator_RowDeletingName="BlocksWithCostAdvancedRowDeleting" msprop:Generator_RowChangingName="BlocksWithCostAdvancedRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithCostAdvancedRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithCostAdvancedRowDeleted" msprop:Generator_UserTableName="BlocksWithCostAdvanced" msprop:Generator_RowChangedName="BlocksWithCostAdvancedRowChanged" msprop:Generator_RowEvArgName="BlocksWithCostAdvancedRowChangeEvent" msprop:Generator_RowClassName="BlocksWithCostAdvancedRow">
+        <xs:element name="BlocksWithCostAdvanced" msprop:Generator_TableClassName="BlocksWithCostAdvancedDataTable" msprop:Generator_TableVarName="tableBlocksWithCostAdvanced" msprop:Generator_RowChangedName="BlocksWithCostAdvancedRowChanged" msprop:Generator_TablePropName="BlocksWithCostAdvanced" msprop:Generator_RowDeletingName="BlocksWithCostAdvancedRowDeleting" msprop:Generator_RowChangingName="BlocksWithCostAdvancedRowChanging" msprop:Generator_RowEvHandlerName="BlocksWithCostAdvancedRowChangeEventHandler" msprop:Generator_RowDeletedName="BlocksWithCostAdvancedRowDeleted" msprop:Generator_RowClassName="BlocksWithCostAdvancedRow" msprop:Generator_UserTableName="BlocksWithCostAdvanced" msprop:Generator_RowEvArgName="BlocksWithCostAdvancedRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Block_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBlock_ID" msprop:Generator_ColumnPropNameInRow="Block_ID" msprop:Generator_ColumnPropNameInTable="Block_IDColumn" msprop:Generator_UserColumnName="Block_ID" type="xs:int" minOccurs="0" />
@@ -682,6 +692,7 @@ FROM            ((Blocks INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="BlockCost" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBlockCost" msprop:Generator_ColumnPropNameInRow="BlockCost" msprop:Generator_ColumnPropNameInTable="BlockCostColumn" msprop:Generator_UserColumnName="BlockCost" type="xs:double" minOccurs="0" />
+              <xs:element name="AdsQuantity" msprop:Generator_ColumnVarNameInTable="columnAdsQuantity" msprop:Generator_ColumnPropNameInRow="AdsQuantity" msprop:Generator_ColumnPropNameInTable="AdsQuantityColumn" msprop:Generator_UserColumnName="AdsQuantity" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -718,12 +729,13 @@ FROM            ((Blocks INNER JOIN
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="RatingsAdverts" msdata:parent="Ratings" msdata:child="Adverts" msdata:parentkey="Rating_ID" msdata:childkey="Rating" msprop:Generator_UserChildTable="Adverts" msprop:Generator_ChildPropName="GetAdvertsRows" msprop:Generator_UserRelationName="RatingsAdverts" msprop:Generator_RelationVarName="relationRatingsAdverts" msprop:Generator_UserParentTable="Ratings" msprop:Generator_ParentPropName="RatingsRow" />
-      <msdata:Relationship name="СustomersAdverts" msdata:parent="Сustomers" msdata:child="Adverts" msdata:parentkey="Cust_ID" msdata:childkey="Customer" msprop:Generator_UserChildTable="Adverts" msprop:Generator_ChildPropName="GetAdvertsRows" msprop:Generator_UserRelationName="СustomersAdverts" msprop:Generator_RelationVarName="relationСustomersAdverts" msprop:Generator_UserParentTable="Сustomers" msprop:Generator_ParentPropName="СustomersRow" />
-      <msdata:Relationship name="AdvertsBlocks" msdata:parent="Adverts" msdata:child="Blocks" msdata:parentkey="Advert_ID" msdata:childkey="Advert" msprop:Generator_UserChildTable="Blocks" msprop:Generator_ChildPropName="GetBlocksRows" msprop:Generator_UserRelationName="AdvertsBlocks" msprop:Generator_ParentPropName="AdvertsRow" msprop:Generator_RelationVarName="relationAdvertsBlocks" msprop:Generator_UserParentTable="Adverts" />
-      <msdata:Relationship name="ProgramsBlocks" msdata:parent="Programs" msdata:child="Blocks" msdata:parentkey="Prog_ID" msdata:childkey="Program" msprop:Generator_UserChildTable="Blocks" msprop:Generator_ChildPropName="GetBlocksRows" msprop:Generator_UserRelationName="ProgramsBlocks" msprop:Generator_RelationVarName="relationProgramsBlocks" msprop:Generator_UserParentTable="Programs" msprop:Generator_ParentPropName="ProgramsRow" />
-      <msdata:Relationship name="BlocksBroadcast_list" msdata:parent="Blocks" msdata:child="BroadcastList" msdata:parentkey="Block_ID" msdata:childkey="Block_ID" msprop:Generator_UserChildTable="BroadcastList" msprop:Generator_ChildPropName="GetBroadcastListRows" msprop:Generator_UserRelationName="BlocksBroadcast_list" msprop:Generator_ParentPropName="BlocksRow" msprop:Generator_RelationVarName="relationBlocksBroadcast_list" msprop:Generator_UserParentTable="Blocks" />
-      <msdata:Relationship name="RatingsPrograms" msdata:parent="Ratings" msdata:child="Programs" msdata:parentkey="Rating_ID" msdata:childkey="Rating" msprop:Generator_UserChildTable="Programs" msprop:Generator_ChildPropName="GetProgramsRows" msprop:Generator_UserRelationName="RatingsPrograms" msprop:Generator_RelationVarName="relationRatingsPrograms" msprop:Generator_UserParentTable="Ratings" msprop:Generator_ParentPropName="RatingsRow" />
+      <msdata:Relationship name="RatingsAdverts" msdata:parent="Ratings" msdata:child="Adverts" msdata:parentkey="Rating_ID" msdata:childkey="Rating" msprop:Generator_UserChildTable="Adverts" msprop:Generator_ChildPropName="GetAdvertsRows" msprop:Generator_UserRelationName="RatingsAdverts" msprop:Generator_ParentPropName="RatingsRow" msprop:Generator_RelationVarName="relationRatingsAdverts" msprop:Generator_UserParentTable="Ratings" />
+      <msdata:Relationship name="СustomersAdverts" msdata:parent="Сustomers" msdata:child="Adverts" msdata:parentkey="Cust_ID" msdata:childkey="Customer" msprop:Generator_UserChildTable="Adverts" msprop:Generator_ChildPropName="GetAdvertsRows" msprop:Generator_UserRelationName="СustomersAdverts" msprop:Generator_ParentPropName="СustomersRow" msprop:Generator_RelationVarName="relationСustomersAdverts" msprop:Generator_UserParentTable="Сustomers" />
+      <msdata:Relationship name="AdvertsBlocks" msdata:parent="Adverts" msdata:child="Blocks" msdata:parentkey="Advert_ID" msdata:childkey="Advert" msprop:Generator_UserChildTable="Blocks" msprop:Generator_ChildPropName="GetBlocksRows" msprop:Generator_UserRelationName="AdvertsBlocks" msprop:Generator_RelationVarName="relationAdvertsBlocks" msprop:Generator_UserParentTable="Adverts" msprop:Generator_ParentPropName="AdvertsRow" />
+      <msdata:Relationship name="ProgramsBlocks" msdata:parent="Programs" msdata:child="Blocks" msdata:parentkey="Prog_ID" msdata:childkey="Program" msprop:Generator_UserChildTable="Blocks" msprop:Generator_ChildPropName="GetBlocksRows" msprop:Generator_UserRelationName="ProgramsBlocks" msprop:Generator_ParentPropName="ProgramsRow" msprop:Generator_RelationVarName="relationProgramsBlocks" msprop:Generator_UserParentTable="Programs" />
+      <msdata:Relationship name="BlocksBroadcast_list" msdata:parent="Blocks" msdata:child="BroadcastList" msdata:parentkey="Block_ID" msdata:childkey="Block_ID" msprop:Generator_UserChildTable="BroadcastList" msprop:Generator_ChildPropName="GetBroadcastListRows" msprop:Generator_UserRelationName="BlocksBroadcast_list" msprop:Generator_RelationVarName="relationBlocksBroadcast_list" msprop:Generator_UserParentTable="Blocks" msprop:Generator_ParentPropName="BlocksRow" />
+      <msdata:Relationship name="RatingsPrograms" msdata:parent="Ratings" msdata:child="Programs" msdata:parentkey="Rating_ID" msdata:childkey="Rating" msprop:Generator_UserChildTable="Programs" msprop:Generator_ChildPropName="GetProgramsRows" msprop:Generator_UserRelationName="RatingsPrograms" msprop:Generator_ParentPropName="RatingsRow" msprop:Generator_RelationVarName="relationRatingsPrograms" msprop:Generator_UserParentTable="Ratings" />
+      <msdata:Relationship name="BlocksBroadcast_list1" msdata:parent="BlocksWithCost" msdata:child="BroadcastList" msdata:parentkey="Block_ID" msdata:childkey="Block_ID" msprop:Generator_UserChildTable="BroadcastList" msprop:Generator_ChildPropName="GetBroadcastListRows" msprop:Generator_UserRelationName="BlocksBroadcast_list1" msprop:Generator_RelationVarName="relationBlocksBroadcast_list1" msprop:Generator_UserParentTable="BlocksWithCost" msprop:Generator_ParentPropName="BlocksWithCostRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
