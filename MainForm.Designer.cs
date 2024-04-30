@@ -31,38 +31,47 @@ namespace TV_advert_WF
         {
             this.components = new System.ComponentModel.Container();
             this.blocksDataGridView = new System.Windows.Forms.DataGridView();
-            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
-            this.blocksWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.blocksWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksWithTitlesTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.programDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.advertDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.blocksWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advertDataSet = new TV_advert_WF.AdvertDataSet();
+            this.blocksWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksWithTitlesTableAdapter();
             this.programsDataGridView = new System.Windows.Forms.DataGridView();
+            this.progIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minuteCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ratingDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.programsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.advertsDataGridView = new System.Windows.Forms.DataGridView();
-            this.advertsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.advertsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.AdvertsWithTitlesTableAdapter();
             this.advertIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationsecDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ratingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.programsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advertsWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advertsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.AdvertsWithTitlesTableAdapter();
             this.programsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.ProgramsWithTitlesTableAdapter();
-            this.progIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minuteCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ratingDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBlockButton = new System.Windows.Forms.Button();
             this.deleteBlockButton = new System.Windows.Forms.Button();
             this.changeBlockButton = new System.Windows.Forms.Button();
+            this.programEditButton = new System.Windows.Forms.Button();
+            this.advertEditButton = new System.Windows.Forms.Button();
+            this.blockEditPanel = new System.Windows.Forms.Panel();
+            this.progAdEditPanel = new System.Windows.Forms.Panel();
+            this.blocksNameLabel = new System.Windows.Forms.Label();
+            this.advertNameLabel = new System.Windows.Forms.Label();
+            this.progNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.blocksDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advertsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advertsWithTitlesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).BeginInit();
+            this.blockEditPanel.SuspendLayout();
+            this.progAdEditPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // blocksDataGridView
@@ -79,26 +88,12 @@ namespace TV_advert_WF
             this.advertDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn});
             this.blocksDataGridView.DataSource = this.blocksWithTitlesBindingSource;
-            this.blocksDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.blocksDataGridView.Location = new System.Drawing.Point(12, 37);
             this.blocksDataGridView.MultiSelect = false;
             this.blocksDataGridView.Name = "blocksDataGridView";
             this.blocksDataGridView.ReadOnly = true;
             this.blocksDataGridView.Size = new System.Drawing.Size(457, 164);
             this.blocksDataGridView.TabIndex = 0;
-            // 
-            // advertDataSet
-            // 
-            this.advertDataSet.DataSetName = "AdvertDataSet";
-            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // blocksWithTitlesBindingSource
-            // 
-            this.blocksWithTitlesBindingSource.DataMember = "BlocksWithTitles";
-            this.blocksWithTitlesBindingSource.DataSource = this.advertDataSet;
-            // 
-            // blocksWithTitlesTableAdapter
-            // 
-            this.blocksWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -132,6 +127,20 @@ namespace TV_advert_WF
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             this.titleDataGridViewTextBoxColumn.Width = 52;
             // 
+            // blocksWithTitlesBindingSource
+            // 
+            this.blocksWithTitlesBindingSource.DataMember = "BlocksWithTitles";
+            this.blocksWithTitlesBindingSource.DataSource = this.advertDataSet;
+            // 
+            // advertDataSet
+            // 
+            this.advertDataSet.DataSetName = "AdvertDataSet";
+            this.advertDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // blocksWithTitlesTableAdapter
+            // 
+            this.blocksWithTitlesTableAdapter.ClearBeforeFill = true;
+            // 
             // programsDataGridView
             // 
             this.programsDataGridView.AllowUserToAddRows = false;
@@ -146,11 +155,48 @@ namespace TV_advert_WF
             this.minuteCostDataGridViewTextBoxColumn,
             this.ratingDataGridViewTextBoxColumn1});
             this.programsDataGridView.DataSource = this.programsWithTitlesBindingSource;
-            this.programsDataGridView.Location = new System.Drawing.Point(12, 223);
+            this.programsDataGridView.Location = new System.Drawing.Point(12, 232);
             this.programsDataGridView.Name = "programsDataGridView";
             this.programsDataGridView.ReadOnly = true;
             this.programsDataGridView.Size = new System.Drawing.Size(457, 162);
             this.programsDataGridView.TabIndex = 1;
+            // 
+            // progIDDataGridViewTextBoxColumn
+            // 
+            this.progIDDataGridViewTextBoxColumn.DataPropertyName = "Prog_ID";
+            this.progIDDataGridViewTextBoxColumn.HeaderText = "Prog_ID";
+            this.progIDDataGridViewTextBoxColumn.Name = "progIDDataGridViewTextBoxColumn";
+            this.progIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.progIDDataGridViewTextBoxColumn.Width = 71;
+            // 
+            // titleDataGridViewTextBoxColumn2
+            // 
+            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn2.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
+            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.titleDataGridViewTextBoxColumn2.Width = 52;
+            // 
+            // minuteCostDataGridViewTextBoxColumn
+            // 
+            this.minuteCostDataGridViewTextBoxColumn.DataPropertyName = "MinuteCost";
+            this.minuteCostDataGridViewTextBoxColumn.HeaderText = "MinuteCost";
+            this.minuteCostDataGridViewTextBoxColumn.Name = "minuteCostDataGridViewTextBoxColumn";
+            this.minuteCostDataGridViewTextBoxColumn.ReadOnly = true;
+            this.minuteCostDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // ratingDataGridViewTextBoxColumn1
+            // 
+            this.ratingDataGridViewTextBoxColumn1.DataPropertyName = "Rating";
+            this.ratingDataGridViewTextBoxColumn1.HeaderText = "Rating";
+            this.ratingDataGridViewTextBoxColumn1.Name = "ratingDataGridViewTextBoxColumn1";
+            this.ratingDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ratingDataGridViewTextBoxColumn1.Width = 63;
+            // 
+            // programsWithTitlesBindingSource
+            // 
+            this.programsWithTitlesBindingSource.DataMember = "ProgramsWithTitles";
+            this.programsWithTitlesBindingSource.DataSource = this.advertDataSet;
             // 
             // advertsDataGridView
             // 
@@ -167,20 +213,11 @@ namespace TV_advert_WF
             this.customerDataGridViewTextBoxColumn,
             this.ratingDataGridViewTextBoxColumn});
             this.advertsDataGridView.DataSource = this.advertsWithTitlesBindingSource;
-            this.advertsDataGridView.Location = new System.Drawing.Point(12, 391);
+            this.advertsDataGridView.Location = new System.Drawing.Point(12, 425);
             this.advertsDataGridView.Name = "advertsDataGridView";
             this.advertsDataGridView.ReadOnly = true;
             this.advertsDataGridView.Size = new System.Drawing.Size(555, 162);
             this.advertsDataGridView.TabIndex = 2;
-            // 
-            // advertsWithTitlesBindingSource
-            // 
-            this.advertsWithTitlesBindingSource.DataMember = "AdvertsWithTitles";
-            this.advertsWithTitlesBindingSource.DataSource = this.advertDataSet;
-            // 
-            // advertsWithTitlesTableAdapter
-            // 
-            this.advertsWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
             // advertIDDataGridViewTextBoxColumn
             // 
@@ -222,82 +259,123 @@ namespace TV_advert_WF
             this.ratingDataGridViewTextBoxColumn.ReadOnly = true;
             this.ratingDataGridViewTextBoxColumn.Width = 63;
             // 
-            // programsWithTitlesBindingSource
+            // advertsWithTitlesBindingSource
             // 
-            this.programsWithTitlesBindingSource.DataMember = "ProgramsWithTitles";
-            this.programsWithTitlesBindingSource.DataSource = this.advertDataSet;
+            this.advertsWithTitlesBindingSource.DataMember = "AdvertsWithTitles";
+            this.advertsWithTitlesBindingSource.DataSource = this.advertDataSet;
+            // 
+            // advertsWithTitlesTableAdapter
+            // 
+            this.advertsWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
             // programsWithTitlesTableAdapter
             // 
             this.programsWithTitlesTableAdapter.ClearBeforeFill = true;
             // 
-            // progIDDataGridViewTextBoxColumn
-            // 
-            this.progIDDataGridViewTextBoxColumn.DataPropertyName = "Prog_ID";
-            this.progIDDataGridViewTextBoxColumn.HeaderText = "Prog_ID";
-            this.progIDDataGridViewTextBoxColumn.Name = "progIDDataGridViewTextBoxColumn";
-            this.progIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.progIDDataGridViewTextBoxColumn.Width = 71;
-            // 
-            // titleDataGridViewTextBoxColumn2
-            // 
-            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
-            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.titleDataGridViewTextBoxColumn2.Width = 52;
-            // 
-            // minuteCostDataGridViewTextBoxColumn
-            // 
-            this.minuteCostDataGridViewTextBoxColumn.DataPropertyName = "MinuteCost";
-            this.minuteCostDataGridViewTextBoxColumn.HeaderText = "MinuteCost";
-            this.minuteCostDataGridViewTextBoxColumn.Name = "minuteCostDataGridViewTextBoxColumn";
-            this.minuteCostDataGridViewTextBoxColumn.ReadOnly = true;
-            this.minuteCostDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // ratingDataGridViewTextBoxColumn1
-            // 
-            this.ratingDataGridViewTextBoxColumn1.DataPropertyName = "Rating";
-            this.ratingDataGridViewTextBoxColumn1.HeaderText = "Rating";
-            this.ratingDataGridViewTextBoxColumn1.Name = "ratingDataGridViewTextBoxColumn1";
-            this.ratingDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.ratingDataGridViewTextBoxColumn1.Width = 63;
-            // 
             // addBlockButton
             // 
-            this.addBlockButton.Location = new System.Drawing.Point(475, 12);
+            this.addBlockButton.Location = new System.Drawing.Point(3, 3);
             this.addBlockButton.Name = "addBlockButton";
-            this.addBlockButton.Size = new System.Drawing.Size(139, 41);
+            this.addBlockButton.Size = new System.Drawing.Size(170, 41);
             this.addBlockButton.TabIndex = 3;
             this.addBlockButton.Text = "Добавить блок";
             this.addBlockButton.UseVisualStyleBackColor = true;
             // 
             // deleteBlockButton
             // 
-            this.deleteBlockButton.Location = new System.Drawing.Point(475, 59);
+            this.deleteBlockButton.Location = new System.Drawing.Point(3, 61);
             this.deleteBlockButton.Name = "deleteBlockButton";
-            this.deleteBlockButton.Size = new System.Drawing.Size(139, 41);
+            this.deleteBlockButton.Size = new System.Drawing.Size(170, 41);
             this.deleteBlockButton.TabIndex = 4;
             this.deleteBlockButton.Text = "Удалить Блок";
             this.deleteBlockButton.UseVisualStyleBackColor = true;
             // 
             // changeBlockButton
             // 
-            this.changeBlockButton.Location = new System.Drawing.Point(475, 106);
+            this.changeBlockButton.Location = new System.Drawing.Point(3, 120);
             this.changeBlockButton.Name = "changeBlockButton";
-            this.changeBlockButton.Size = new System.Drawing.Size(139, 41);
+            this.changeBlockButton.Size = new System.Drawing.Size(170, 41);
             this.changeBlockButton.TabIndex = 5;
             this.changeBlockButton.Text = "Изменить выбранный блок";
             this.changeBlockButton.UseVisualStyleBackColor = true;
+            // 
+            // programEditButton
+            // 
+            this.programEditButton.Location = new System.Drawing.Point(3, 3);
+            this.programEditButton.Name = "programEditButton";
+            this.programEditButton.Size = new System.Drawing.Size(170, 39);
+            this.programEditButton.TabIndex = 6;
+            this.programEditButton.Text = "Редактировать программы";
+            this.programEditButton.UseVisualStyleBackColor = true;
+            // 
+            // advertEditButton
+            // 
+            this.advertEditButton.Location = new System.Drawing.Point(3, 48);
+            this.advertEditButton.Name = "advertEditButton";
+            this.advertEditButton.Size = new System.Drawing.Size(170, 39);
+            this.advertEditButton.TabIndex = 7;
+            this.advertEditButton.Text = "Редактировать рекламу";
+            this.advertEditButton.UseVisualStyleBackColor = true;
+            // 
+            // blockEditPanel
+            // 
+            this.blockEditPanel.Controls.Add(this.addBlockButton);
+            this.blockEditPanel.Controls.Add(this.changeBlockButton);
+            this.blockEditPanel.Controls.Add(this.deleteBlockButton);
+            this.blockEditPanel.Location = new System.Drawing.Point(612, 37);
+            this.blockEditPanel.Name = "blockEditPanel";
+            this.blockEditPanel.Size = new System.Drawing.Size(176, 164);
+            this.blockEditPanel.TabIndex = 8;
+            // 
+            // progAdEditPanel
+            // 
+            this.progAdEditPanel.Controls.Add(this.programEditButton);
+            this.progAdEditPanel.Controls.Add(this.advertEditButton);
+            this.progAdEditPanel.Location = new System.Drawing.Point(615, 232);
+            this.progAdEditPanel.Name = "progAdEditPanel";
+            this.progAdEditPanel.Size = new System.Drawing.Size(176, 92);
+            this.progAdEditPanel.TabIndex = 9;
+            // 
+            // blocksNameLabel
+            // 
+            this.blocksNameLabel.AutoSize = true;
+            this.blocksNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.blocksNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.blocksNameLabel.Name = "blocksNameLabel";
+            this.blocksNameLabel.Size = new System.Drawing.Size(73, 25);
+            this.blocksNameLabel.TabIndex = 10;
+            this.blocksNameLabel.Text = "Блоки";
+            // 
+            // advertNameLabel
+            // 
+            this.advertNameLabel.AutoSize = true;
+            this.advertNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.advertNameLabel.Location = new System.Drawing.Point(12, 397);
+            this.advertNameLabel.Name = "advertNameLabel";
+            this.advertNameLabel.Size = new System.Drawing.Size(100, 25);
+            this.advertNameLabel.TabIndex = 11;
+            this.advertNameLabel.Text = "Реклама";
+            // 
+            // progNameLabel
+            // 
+            this.progNameLabel.AutoSize = true;
+            this.progNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.progNameLabel.Location = new System.Drawing.Point(12, 204);
+            this.progNameLabel.Name = "progNameLabel";
+            this.progNameLabel.Size = new System.Drawing.Size(128, 25);
+            this.progNameLabel.TabIndex = 12;
+            this.progNameLabel.Text = "Программы";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 565);
-            this.Controls.Add(this.changeBlockButton);
-            this.Controls.Add(this.deleteBlockButton);
-            this.Controls.Add(this.addBlockButton);
+            this.ClientSize = new System.Drawing.Size(800, 594);
+            this.Controls.Add(this.progNameLabel);
+            this.Controls.Add(this.advertNameLabel);
+            this.Controls.Add(this.blocksNameLabel);
+            this.Controls.Add(this.progAdEditPanel);
+            this.Controls.Add(this.blockEditPanel);
             this.Controls.Add(this.advertsDataGridView);
             this.Controls.Add(this.programsDataGridView);
             this.Controls.Add(this.blocksDataGridView);
@@ -307,13 +385,16 @@ namespace TV_advert_WF
             this.Text = "Основная";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.blocksDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advertsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advertsWithTitlesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).EndInit();
+            this.blockEditPanel.ResumeLayout(false);
+            this.progAdEditPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -345,6 +426,13 @@ namespace TV_advert_WF
         private System.Windows.Forms.Button addBlockButton;
         private System.Windows.Forms.Button deleteBlockButton;
         private System.Windows.Forms.Button changeBlockButton;
+        private System.Windows.Forms.Button programEditButton;
+        private System.Windows.Forms.Button advertEditButton;
+        private System.Windows.Forms.Panel blockEditPanel;
+        private System.Windows.Forms.Panel progAdEditPanel;
+        private System.Windows.Forms.Label blocksNameLabel;
+        private System.Windows.Forms.Label advertNameLabel;
+        private System.Windows.Forms.Label progNameLabel;
     }
 }
 

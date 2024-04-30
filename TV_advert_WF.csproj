@@ -51,6 +51,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdvertDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AdvertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvertForm.Designer.cs">
+      <DependentUpon>AdvertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlockForm.Designer.cs">
+      <DependentUpon>BlockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,9 +70,24 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgramEditForm.Designer.cs">
+      <DependentUpon>ProgramEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdvertForm.resx">
+      <DependentUpon>AdvertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlockForm.resx">
+      <DependentUpon>BlockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgramEditForm.resx">
+      <DependentUpon>ProgramEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
