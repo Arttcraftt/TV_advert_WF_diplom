@@ -25,7 +25,6 @@ namespace TV_advert_WF
         public int ScalarAdsQuantity()
         {
             connection.Open();
-            command = connection.CreateCommand();
             connection.Close();
             return 3;
         }
