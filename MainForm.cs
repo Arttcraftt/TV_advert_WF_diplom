@@ -12,6 +12,22 @@ namespace TV_advert_WF
             InitializeComponent();
         }
 
+        public MainForm(int Role)
+        {
+            InitializeComponent();
+            switch (Role)
+            {
+                case 2:
+                    mainTabControl.TabPages.RemoveAt(4);
+                    break;
+                case 3:
+                    for (int i = 4; i >= 1; i--)
+                        mainTabControl.TabPages.RemoveAt(i);
+                    break;
+                default: break;
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "advertDataSet.Programs". При необходимости она может быть перемещена или удалена.

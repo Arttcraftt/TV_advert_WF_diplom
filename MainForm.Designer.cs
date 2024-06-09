@@ -193,7 +193,6 @@ namespace TV_advert_WF
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workersWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workerTitleMainLabel = new System.Windows.Forms.Label();
             this.blocksWithTitlesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.blocksWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksWithTitlesTableAdapter();
             this.advertsWithTitlesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.AdvertsWithTitlesTableAdapter();
@@ -590,7 +589,7 @@ namespace TV_advert_WF
             this.mainTabControl.Controls.Add(this.programsTabPage);
             this.mainTabControl.Controls.Add(this.advertTabPage);
             this.mainTabControl.Controls.Add(this.workersTabPage);
-            this.mainTabControl.Location = new System.Drawing.Point(1, 37);
+            this.mainTabControl.Location = new System.Drawing.Point(0, 2);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(807, 621);
@@ -1944,9 +1943,9 @@ namespace TV_advert_WF
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label33.Location = new System.Drawing.Point(105, 53);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(109, 25);
+            this.label33.Size = new System.Drawing.Size(61, 25);
             this.label33.TabIndex = 20;
-            this.label33.Text = "Название";
+            this.label33.Text = "ФИО";
             // 
             // panel2
             // 
@@ -2079,18 +2078,6 @@ namespace TV_advert_WF
             this.workersWithTitlesBindingSource.DataMember = "WorkersWithTitles";
             this.workersWithTitlesBindingSource.DataSource = this.advertDataSet;
             // 
-            // workerTitleMainLabel
-            // 
-            this.workerTitleMainLabel.AutoSize = true;
-            this.workerTitleMainLabel.BackColor = System.Drawing.Color.Transparent;
-            this.workerTitleMainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.workerTitleMainLabel.Location = new System.Drawing.Point(3, 9);
-            this.workerTitleMainLabel.Name = "workerTitleMainLabel";
-            this.workerTitleMainLabel.Size = new System.Drawing.Size(61, 25);
-            this.workerTitleMainLabel.TabIndex = 33;
-            this.workerTitleMainLabel.Text = "ФИО";
-            this.workerTitleMainLabel.Visible = false;
-            // 
             // blocksWithTitlesBindingSource
             // 
             this.blocksWithTitlesBindingSource.DataMember = "BlocksWithTitles";
@@ -2168,8 +2155,7 @@ namespace TV_advert_WF
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(808, 658);
-            this.Controls.Add(this.workerTitleMainLabel);
+            this.ClientSize = new System.Drawing.Size(808, 626);
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
@@ -2225,7 +2211,6 @@ namespace TV_advert_WF
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -2272,7 +2257,6 @@ namespace TV_advert_WF
         private System.Windows.Forms.DataGridViewTextBoxColumn minuteCostDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ratingDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage viewTabPage;
         private System.Windows.Forms.TabPage blocksTabPage;
         private System.Windows.Forms.TabPage programsTabPage;
@@ -2375,7 +2359,6 @@ namespace TV_advert_WF
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox titleCustTextBoxAds;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TabPage workersTabPage;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button addWorkerButton;
         private System.Windows.Forms.Button changeWorkerButton;
@@ -2397,7 +2380,6 @@ namespace TV_advert_WF
         private System.Windows.Forms.ComboBox roleWorkerChoiseComboBoxWorkers;
         private System.Windows.Forms.Label label34;
         private AdvertDataSetTableAdapters.AdvertsTableAdapter advertsTableAdapter2;
-        private System.Windows.Forms.Label workerTitleMainLabel;
         private System.Windows.Forms.BindingSource workersBindingSource;
         private AdvertDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private System.Windows.Forms.BindingSource workersWithTitlesBindingSource;
@@ -2411,6 +2393,8 @@ namespace TV_advert_WF
         private System.Windows.Forms.DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource programsBindingSource;
         private AdvertDataSetTableAdapters.ProgramsTableAdapter programsTableAdapter;
+        private System.Windows.Forms.TabPage workersTabPage;
+        private System.Windows.Forms.TabControl mainTabControl;
     }
 }
 

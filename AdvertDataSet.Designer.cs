@@ -11362,12 +11362,12 @@ FROM            ((Blocks INNER JOIN
             this._commandCollection[0].CommandText = "SELECT        Worker_ID, Login, [Password], Role, Title\r\nFROM            Workers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[1].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnectionString);
+            this._commandCollection[1].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnStr);
             this._commandCollection[1].CommandText = "DELETE FROM `Workers` WHERE (`Worker_ID` = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Worker_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Worker_ID", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[2].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnectionString);
+            this._commandCollection[2].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnStr);
             this._commandCollection[2].CommandText = "INSERT INTO Workers\r\n                         (Title ,Login, [Password], Role)\r\nV" +
                 "ALUES        (?, ?, ?,?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
@@ -11383,7 +11383,7 @@ FROM            ((Blocks INNER JOIN
             this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Login", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Login", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Password", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Password", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[4].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnectionString);
+            this._commandCollection[4].Connection = new global::System.Data.OleDb.OleDbConnection(global::TV_advert_WF.Properties.Settings.Default.AdvertConnStr);
             this._commandCollection[4].CommandText = "UPDATE       Workers\r\nSET                Title = ?, Login = ?,  [Password] =?,  R" +
                 "ole =?\r\nWHERE        (Worker_ID = ?)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
@@ -11936,7 +11936,7 @@ FROM            ((Blocks INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::TV_advert_WF.Properties.Settings.Default.AdvertConnectionString;
+            this._connection.ConnectionString = global::TV_advert_WF.Properties.Settings.Default.AdvertConnStr;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12229,7 +12229,7 @@ FROM            ((Blocks INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::TV_advert_WF.Properties.Settings.Default.AdvertConnectionString;
+            this._connection.ConnectionString = global::TV_advert_WF.Properties.Settings.Default.AdvertConnStr;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
