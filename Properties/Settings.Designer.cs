@@ -32,16 +32,5 @@ namespace TV_advert_WF.Properties {
                 return ((string)(this["AdvertConnStr"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\user\\Documents\\codes\\Дипло" +
-            "м\\Advert.accdb")]
-        public string AdvertConnectionString {
-            get {
-                return ((string)(this["AdvertConnectionString"]));
-            }
-        }
     }
 }

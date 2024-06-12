@@ -84,7 +84,7 @@
             this.buttonRegistration.Location = new System.Drawing.Point(188, 136);
             this.buttonRegistration.Name = "buttonRegistration";
             this.buttonRegistration.Size = new System.Drawing.Size(170, 41);
-            this.buttonRegistration.TabIndex = 26;
+            this.buttonRegistration.TabIndex = 3;
             this.buttonRegistration.Text = "Регистрация";
             this.buttonRegistration.UseVisualStyleBackColor = false;
             this.buttonRegistration.Click += new System.EventHandler(this.buttonRegistration_Click);
@@ -98,7 +98,7 @@
             this.buttonEnter.Location = new System.Drawing.Point(12, 136);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(170, 41);
-            this.buttonEnter.TabIndex = 28;
+            this.buttonEnter.TabIndex = 2;
             this.buttonEnter.Text = "Войти";
             this.buttonEnter.UseVisualStyleBackColor = false;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);

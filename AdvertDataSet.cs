@@ -12,6 +12,10 @@
 
 namespace TV_advert_WF.AdvertDataSetTableAdapters
 {
+    partial class AdvertsTableAdapter
+    {
+    }
+
     partial class ProgramsWithTitlesTableAdapter
     {
     }

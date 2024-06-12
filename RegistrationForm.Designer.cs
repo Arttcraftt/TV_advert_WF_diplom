@@ -45,7 +45,7 @@
             this.textBoxLogin.Location = new System.Drawing.Point(12, 99);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(346, 31);
-            this.textBoxLogin.TabIndex = 31;
+            this.textBoxLogin.TabIndex = 1;
             // 
             // buttonCancel
             // 
@@ -56,7 +56,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(188, 198);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(170, 41);
-            this.buttonCancel.TabIndex = 6;
+            this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -70,7 +70,7 @@
             this.buttonOK.Location = new System.Drawing.Point(12, 198);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(170, 41);
-            this.buttonOK.TabIndex = 25;
+            this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = false;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -81,7 +81,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(12, 37);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(346, 31);
-            this.textBoxTitle.TabIndex = 21;
+            this.textBoxTitle.TabIndex = 0;
             // 
             // textBoxPassword
             // 
@@ -89,7 +89,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(12, 161);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(346, 31);
-            this.textBoxPassword.TabIndex = 27;
+            this.textBoxPassword.TabIndex = 2;
             // 
             // label1
             // 

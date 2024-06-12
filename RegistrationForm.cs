@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TV_advert_WF
@@ -17,13 +10,13 @@ namespace TV_advert_WF
             InitializeComponent();
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e) //регистрация нового работника с ролью гость
         {
             workersTableAdapter1.InsertQuery(textBoxTitle.Text, textBoxLogin.Text, textBoxPassword.Text, 3);
             this.Close();
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e) //отмена регистрации
         {
             if(MessageBox.Show("Вы уверены отменить регистрацию?", "Отмена", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) 
                 this.Close();

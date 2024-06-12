@@ -95,7 +95,9 @@ namespace TV_advert_WF
             this.deleteBlockButton = new System.Windows.Forms.Button();
             this.programsTabPage = new System.Windows.Forms.TabPage();
             this.editAddProgramPanel = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.adsQuantityTextBoxProgs = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ratingProgComboBoxProgs = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.minuteCostTextBoxProgs = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -116,6 +118,7 @@ namespace TV_advert_WF
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.advertTabPage = new System.Windows.Forms.TabPage();
             this.editAddCustomerPanel = new System.Windows.Forms.Panel();
             this.telephoneCustTextBoxAds = new System.Windows.Forms.TextBox();
@@ -174,8 +177,8 @@ namespace TV_advert_WF
             this.label28 = new System.Windows.Forms.Label();
             this.loginWorkerTextBoxWorkers = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.workerCancelPanelButton = new System.Windows.Forms.Button();
+            this.workerOKPanelButton = new System.Windows.Forms.Button();
             this.workerIDLabelWorkers = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -186,7 +189,7 @@ namespace TV_advert_WF
             this.changeWorkerButton = new System.Windows.Forms.Button();
             this.deleteWorkerButton = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.workersEditDataGridView = new System.Windows.Forms.DataGridView();
             this.workerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,6 +213,7 @@ namespace TV_advert_WF
             this.workerRolesTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.WorkerRolesTableAdapter();
             this.programsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.programsTableAdapter = new TV_advert_WF.AdvertDataSetTableAdapters.ProgramsTableAdapter();
+            this.blocksTableAdapter1 = new TV_advert_WF.AdvertDataSetTableAdapters.BlocksTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.programsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programsWithTitlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advertDataSet)).BeginInit();
@@ -241,7 +245,7 @@ namespace TV_advert_WF
             this.editAddWorkerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerRolesBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersEditDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersWithTitlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithCostBindingSource)).BeginInit();
@@ -714,7 +718,7 @@ namespace TV_advert_WF
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(72, 53);
+            this.label5.Location = new System.Drawing.Point(27, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 25);
             this.label5.TabIndex = 23;
@@ -947,7 +951,9 @@ namespace TV_advert_WF
             // editAddProgramPanel
             // 
             this.editAddProgramPanel.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.editAddProgramPanel.Controls.Add(this.comboBox1);
+            this.editAddProgramPanel.Controls.Add(this.adsQuantityTextBoxProgs);
+            this.editAddProgramPanel.Controls.Add(this.label8);
+            this.editAddProgramPanel.Controls.Add(this.ratingProgComboBoxProgs);
             this.editAddProgramPanel.Controls.Add(this.label12);
             this.editAddProgramPanel.Controls.Add(this.minuteCostTextBoxProgs);
             this.editAddProgramPanel.Controls.Add(this.label7);
@@ -964,16 +970,35 @@ namespace TV_advert_WF
             this.editAddProgramPanel.TabIndex = 17;
             this.editAddProgramPanel.Visible = false;
             // 
-            // comboBox1
+            // adsQuantityTextBoxProgs
             // 
-            this.comboBox1.DataSource = this.ratingsBindingSource;
-            this.comboBox1.DisplayMember = "Title";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 149);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 33);
-            this.comboBox1.TabIndex = 29;
+            this.adsQuantityTextBoxProgs.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.adsQuantityTextBoxProgs.Location = new System.Drawing.Point(316, 149);
+            this.adsQuantityTextBoxProgs.Name = "adsQuantityTextBoxProgs";
+            this.adsQuantityTextBoxProgs.Size = new System.Drawing.Size(200, 31);
+            this.adsQuantityTextBoxProgs.TabIndex = 31;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(311, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(328, 25);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Максимальное кол-во рекламы";
+            // 
+            // ratingProgComboBoxProgs
+            // 
+            this.ratingProgComboBoxProgs.DataSource = this.ratingsBindingSource;
+            this.ratingProgComboBoxProgs.DisplayMember = "Title";
+            this.ratingProgComboBoxProgs.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.ratingProgComboBoxProgs.FormattingEnabled = true;
+            this.ratingProgComboBoxProgs.Location = new System.Drawing.Point(110, 149);
+            this.ratingProgComboBoxProgs.Name = "ratingProgComboBoxProgs";
+            this.ratingProgComboBoxProgs.Size = new System.Drawing.Size(200, 33);
+            this.ratingProgComboBoxProgs.TabIndex = 29;
             // 
             // label12
             // 
@@ -1049,7 +1074,7 @@ namespace TV_advert_WF
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(72, 53);
+            this.label9.Location = new System.Drawing.Point(27, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 25);
             this.label9.TabIndex = 23;
@@ -1161,7 +1186,8 @@ namespace TV_advert_WF
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
             this.programsEditDataGridView.DataSource = this.programsWithTitlesBindingSource;
             this.programsEditDataGridView.Location = new System.Drawing.Point(3, 34);
             this.programsEditDataGridView.MultiSelect = false;
@@ -1202,6 +1228,14 @@ namespace TV_advert_WF
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 63;
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "AdsQuantity";
+            this.dataGridViewTextBoxColumn6.HeaderText = "AdsQuantity";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 89;
+            // 
             // advertTabPage
             // 
             this.advertTabPage.BackColor = System.Drawing.Color.SeaGreen;
@@ -1233,7 +1267,7 @@ namespace TV_advert_WF
             this.editAddCustomerPanel.Controls.Add(this.label26);
             this.editAddCustomerPanel.Controls.Add(this.titleCustTextBoxAds);
             this.editAddCustomerPanel.Controls.Add(this.label27);
-            this.editAddCustomerPanel.Location = new System.Drawing.Point(3, 404);
+            this.editAddCustomerPanel.Location = new System.Drawing.Point(11, 401);
             this.editAddCustomerPanel.Name = "editAddCustomerPanel";
             this.editAddCustomerPanel.Size = new System.Drawing.Size(776, 188);
             this.editAddCustomerPanel.TabIndex = 32;
@@ -1303,6 +1337,7 @@ namespace TV_advert_WF
             this.customerOKPanelButton.TabIndex = 25;
             this.customerOKPanelButton.Text = "OK";
             this.customerOKPanelButton.UseVisualStyleBackColor = false;
+            this.customerOKPanelButton.Click += new System.EventHandler(this.customerOKPanelButton_Click);
             // 
             // custIDLabelAds
             // 
@@ -1320,7 +1355,7 @@ namespace TV_advert_WF
             this.label25.AutoSize = true;
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label25.Location = new System.Drawing.Point(72, 53);
+            this.label25.Location = new System.Drawing.Point(27, 53);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(32, 25);
             this.label25.TabIndex = 23;
@@ -1490,7 +1525,7 @@ namespace TV_advert_WF
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(72, 53);
+            this.label17.Location = new System.Drawing.Point(27, 53);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 25);
             this.label17.TabIndex = 23;
@@ -1775,7 +1810,7 @@ namespace TV_advert_WF
             this.workersTabPage.Controls.Add(this.editAddWorkerPanel);
             this.workersTabPage.Controls.Add(this.panel2);
             this.workersTabPage.Controls.Add(this.label21);
-            this.workersTabPage.Controls.Add(this.dataGridView1);
+            this.workersTabPage.Controls.Add(this.workersEditDataGridView);
             this.workersTabPage.Location = new System.Drawing.Point(4, 22);
             this.workersTabPage.Name = "workersTabPage";
             this.workersTabPage.Size = new System.Drawing.Size(799, 595);
@@ -1791,8 +1826,8 @@ namespace TV_advert_WF
             this.editAddWorkerPanel.Controls.Add(this.label28);
             this.editAddWorkerPanel.Controls.Add(this.loginWorkerTextBoxWorkers);
             this.editAddWorkerPanel.Controls.Add(this.label29);
-            this.editAddWorkerPanel.Controls.Add(this.button1);
-            this.editAddWorkerPanel.Controls.Add(this.button2);
+            this.editAddWorkerPanel.Controls.Add(this.workerCancelPanelButton);
+            this.editAddWorkerPanel.Controls.Add(this.workerOKPanelButton);
             this.editAddWorkerPanel.Controls.Add(this.workerIDLabelWorkers);
             this.editAddWorkerPanel.Controls.Add(this.label31);
             this.editAddWorkerPanel.Controls.Add(this.label32);
@@ -1869,31 +1904,33 @@ namespace TV_advert_WF
             this.label29.TabIndex = 26;
             this.label29.Text = "Логин";
             // 
-            // button1
+            // workerCancelPanelButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Olive;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(600, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 41);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = false;
+            this.workerCancelPanelButton.BackColor = System.Drawing.Color.Olive;
+            this.workerCancelPanelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.workerCancelPanelButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workerCancelPanelButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.workerCancelPanelButton.Location = new System.Drawing.Point(600, 3);
+            this.workerCancelPanelButton.Name = "workerCancelPanelButton";
+            this.workerCancelPanelButton.Size = new System.Drawing.Size(170, 41);
+            this.workerCancelPanelButton.TabIndex = 6;
+            this.workerCancelPanelButton.Text = "Отмена";
+            this.workerCancelPanelButton.UseVisualStyleBackColor = false;
+            this.workerCancelPanelButton.Click += new System.EventHandler(this.workerCancelPanelButton_Click);
             // 
-            // button2
+            // workerOKPanelButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(600, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 41);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "OK";
-            this.button2.UseVisualStyleBackColor = false;
+            this.workerOKPanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.workerOKPanelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.workerOKPanelButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.workerOKPanelButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.workerOKPanelButton.Location = new System.Drawing.Point(600, 53);
+            this.workerOKPanelButton.Name = "workerOKPanelButton";
+            this.workerOKPanelButton.Size = new System.Drawing.Size(170, 41);
+            this.workerOKPanelButton.TabIndex = 25;
+            this.workerOKPanelButton.Text = "OK";
+            this.workerOKPanelButton.UseVisualStyleBackColor = false;
+            this.workerOKPanelButton.Click += new System.EventHandler(this.workerOKPanelButton_Click);
             // 
             // workerIDLabelWorkers
             // 
@@ -1911,7 +1948,7 @@ namespace TV_advert_WF
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.Color.Transparent;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label31.Location = new System.Drawing.Point(72, 53);
+            this.label31.Location = new System.Drawing.Point(27, 53);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(32, 25);
             this.label31.TabIndex = 23;
@@ -2010,28 +2047,28 @@ namespace TV_advert_WF
             this.label21.TabIndex = 22;
             this.label21.Text = "Работники";
             // 
-            // dataGridView1
+            // workersEditDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.workersEditDataGridView.AllowUserToAddRows = false;
+            this.workersEditDataGridView.AllowUserToDeleteRows = false;
+            this.workersEditDataGridView.AllowUserToResizeRows = false;
+            this.workersEditDataGridView.AutoGenerateColumns = false;
+            this.workersEditDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.workersEditDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.workersEditDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.workersEditDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.workerIDDataGridViewTextBoxColumn,
             this.Title,
             this.loginDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
             this.roleDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.workersWithTitlesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 30);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 164);
-            this.dataGridView1.TabIndex = 21;
+            this.workersEditDataGridView.DataSource = this.workersWithTitlesBindingSource;
+            this.workersEditDataGridView.Location = new System.Drawing.Point(11, 30);
+            this.workersEditDataGridView.MultiSelect = false;
+            this.workersEditDataGridView.Name = "workersEditDataGridView";
+            this.workersEditDataGridView.ReadOnly = true;
+            this.workersEditDataGridView.Size = new System.Drawing.Size(591, 164);
+            this.workersEditDataGridView.TabIndex = 21;
             // 
             // workerIDDataGridViewTextBoxColumn
             // 
@@ -2150,6 +2187,10 @@ namespace TV_advert_WF
             // 
             this.programsTableAdapter.ClearBeforeFill = true;
             // 
+            // blocksTableAdapter1
+            // 
+            this.blocksTableAdapter1.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2204,7 +2245,7 @@ namespace TV_advert_WF
             this.editAddWorkerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerRolesBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersEditDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersWithTitlesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithTitlesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blocksWithCostBindingSource)).EndInit();
@@ -2308,7 +2349,7 @@ namespace TV_advert_WF
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox minuteCostTextBoxProgs;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ratingProgComboBoxProgs;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel customsEditPanel;
         private System.Windows.Forms.Button addCustomButton;
@@ -2364,14 +2405,14 @@ namespace TV_advert_WF
         private System.Windows.Forms.Button changeWorkerButton;
         private System.Windows.Forms.Button deleteWorkerButton;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView workersEditDataGridView;
         private System.Windows.Forms.Panel editAddWorkerPanel;
         private System.Windows.Forms.TextBox passwordWorkerTextBoxWorkers;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox loginWorkerTextBoxWorkers;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button workerCancelPanelButton;
+        private System.Windows.Forms.Button workerOKPanelButton;
         private System.Windows.Forms.Label workerIDLabelWorkers;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
@@ -2395,6 +2436,10 @@ namespace TV_advert_WF
         private AdvertDataSetTableAdapters.ProgramsTableAdapter programsTableAdapter;
         private System.Windows.Forms.TabPage workersTabPage;
         private System.Windows.Forms.TabControl mainTabControl;
+        private AdvertDataSetTableAdapters.BlocksTableAdapter blocksTableAdapter1;
+        private System.Windows.Forms.TextBox adsQuantityTextBoxProgs;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
 
